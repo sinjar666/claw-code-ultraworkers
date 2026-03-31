@@ -327,6 +327,15 @@ fn format_cost_report(usage: TokenUsage) -> String {
     )
 }
 
+fn format_resume_report(session_path: &str, message_count: usize, turns: u32) -> String {
+    format!(
+        "Session resumed
+  Session file     {session_path}
+  Messages         {message_count}
+  Turns            {turns}"
+    )
+}
+
 fn run_resume_command(
     session_path: &Path,
     session: &Session,
@@ -657,7 +666,10 @@ impl LiveCli {
             true,
             permission_mode_label(),
         )?;
-        println!("Resumed session from {session_path} ({message_count} messages).");
+        println!(
+            "{}",
+            format_resume_report(&session_path, message_count, self.runtime.usage().turns())
+        );
         Ok(())
     }
 
@@ -1274,10 +1286,10 @@ fn print_help() {
 mod tests {
     use super::{
         format_cost_report, format_model_report, format_model_switch_report,
-        format_permissions_report, format_permissions_switch_report, format_status_report,
-        normalize_permission_mode, parse_args, render_init_claude_md, render_repl_help,
-        resume_supported_slash_commands, status_context, CliAction, SlashCommand, StatusUsage,
-        DEFAULT_MODEL,
+        format_permissions_report, format_permissions_switch_report, format_resume_report,
+        format_status_report, normalize_permission_mode, parse_args, render_init_claude_md,
+        render_repl_help, resume_supported_slash_commands, status_context, CliAction, SlashCommand,
+        StatusUsage, DEFAULT_MODEL,
     };
     use runtime::{ContentBlock, ConversationMessage, MessageRole};
     use std::path::{Path, PathBuf};
@@ -1398,6 +1410,15 @@ mod tests {
             names,
             vec!["help", "status", "compact", "clear", "cost", "config", "memory", "init",]
         );
+    }
+
+    #[test]
+    fn resume_report_uses_sectioned_layout() {
+        let report = format_resume_report("session.json", 14, 6);
+        assert!(report.contains("Session resumed"));
+        assert!(report.contains("Session file     session.json"));
+        assert!(report.contains("Messages         14"));
+        assert!(report.contains("Turns            6"));
     }
 
     #[test]
