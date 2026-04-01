@@ -1,0 +1,127 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1774971516826,
+  "projectRoot": "/home/bellman/Workspace/clawd-code-worktrees/api/rust",
+  "techStack": {
+    "languages": [
+      {
+        "name": "Rust",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "Cargo.toml"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "cargo",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "cargo build",
+    "testCommand": "cargo test",
+    "lintCommand": "cargo clippy",
+    "devCommand": "cargo run",
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "crates": {
+      "path": "crates",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1774971516823,
+      "keyFiles": []
+    },
+    "target": {
+      "path": "target",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1774971516823,
+      "keyFiles": [
+        "CACHEDIR.TAG"
+      ]
+    },
+    "crates/api": {
+      "path": "crates/api",
+      "purpose": "API routes",
+      "fileCount": 1,
+      "lastAccessed": 1774971516824,
+      "keyFiles": [
+        "Cargo.toml"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "crates/api/Cargo.toml",
+      "accessCount": 1,
+      "lastAccessed": 1774971547109,
+      "type": "file"
+    },
+    {
+      "path": "crates/api/src/lib.rs",
+      "accessCount": 1,
+      "lastAccessed": 1774971547624,
+      "type": "file"
+    },
+    {
+      "path": "crates/api/src/client.rs",
+      "accessCount": 1,
+      "lastAccessed": 1774971548001,
+      "type": "file"
+    },
+    {
+      "path": "crates/api/src/error.rs",
+      "accessCount": 1,
+      "lastAccessed": 1774971548503,
+      "type": "file"
+    },
+    {
+      "path": "crates/api/src/sse.rs",
+      "accessCount": 1,
+      "lastAccessed": 1774971549311,
+      "type": "file"
+    },
+    {
+      "path": "crates/api/src/types.rs",
+      "accessCount": 1,
+      "lastAccessed": 1774971549472,
+      "type": "file"
+    },
+    {
+      "path": "crates/api/tests/client_integration.rs",
+      "accessCount": 1,
+      "lastAccessed": 1774971550143,
+      "type": "file"
+    },
+    {
+      "path": "Cargo.toml",
+      "accessCount": 1,
+      "lastAccessed": 1774971550539,
+      "type": "file"
+    },
+    {
+      "path": "crates/rusty-claude-cli/src/main.rs",
+      "accessCount": 1,
+      "lastAccessed": 1774971551474,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
